@@ -31,8 +31,8 @@ jobs:
 
     # Упаковываем проект в NuGet пакет
     - name: Pack library
-      run: dotnet pack Todo.Core/Todo.Core.csproj --configuration Release --output ./nupkg
+      run: dotnet pack Todo.Core/Todo.Core.csproj -c Release -o ./artifacts 
 
     # Публикуем пакет в GitHub Packages
     - name: Publish to GitHub Packages
-      run: dotnet nuget push ./nupkg/*.nupkg --source "https://nuget.pkg.github.com/zaccler/index.json" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
+      run: dotnet nuget push ./artifacts/*.nupkg --source "https://nuget.pkg.github.com/zaccler/index.json" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
