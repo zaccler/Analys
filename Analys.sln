@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig.base = .editorconfig.base
 		.editorconfig.strict = .editorconfig.strict
-		.githubworkflowsci-analysis.yml = .githubworkflowsci-analysis.yml
-		cd.yml = cd.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F37588B8-BEF9-4804-B1BC-7DEBC38219CD}"
@@ -20,6 +18,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.SampleApp", "Todo.SampleApp\Todo.SampleApp.csproj", "{C94C0EEA-8652-4030-936F-519967136B18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Core.Tests", "Todo.Core.Tests\Todo.Core.Tests.csproj", "{EF0B855D-E96D-442D-85A4-6152765A932A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{9A1E3BEC-2E00-4DE0-9D95-64FEC19B1D35}"
+	ProjectSection(SolutionItems) = preProject
+		.githubworkflowsci-analysis.yml = .githubworkflowsci-analysis.yml
+		cd.yml = cd.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
