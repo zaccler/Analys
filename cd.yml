@@ -1,0 +1,31 @@
+name: CD Todo.Core Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore Todo.Core/Todo.Core.csproj
+
+    - name: Build project
+      run: dotnet build Todo.Core/Todo.Core.csproj --configuration Release --no-restore
+
+    - name: Pack library
+      run: dotnet pack Todo.Core/Todo.Core.csproj --configuration Release --output ./nupkg
+
+    - name: Publish to GitHub Packages
+      run: dotnet nuget push ./nupkg/*.nupkg --source "https://nuget.pkg.github.com/zaccler/index.json" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
