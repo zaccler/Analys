@@ -17,7 +17,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - run: dotnet restore
-
+      # Continue on error to avoid failing if there are warnings treated as errors
       - run: |
           cp .editorconfig.base .editorconfig
           dotnet build -c Release | tee build-base.log || true
